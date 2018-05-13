@@ -3,10 +3,10 @@
   <label for="file-1">
     <svg width="20" height="17" viewBox="0 0 20 17">
       <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
-    </svg> 
+    </svg>
     <span>{{actionComment}}</span>
   </label>
-  
+
   <button id="buttonAccept" class="acceptbutton" *ngIf="acceptVisible" (click)="onAccept()">
       <svg enable-background="new 0 0 512 512" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <path d="M486.061,22.462c-7.083-4.048-14.688-6.153-22.457-6.153c-19.568,0-34.273,9.172-48.668,28.169  c-72.854,96.144-163.702,239.958-213.609,329.624L88.821,268.753c-12.559-13.66-25.712-21.576-44.946-21.576  c-10.184,0-19.846,4.945-27.361,11.849c-8.96,8.095-13.31,19.683-13.31,31.955c0,16.745,5.671,28.43,16.671,40.312l152.31,145.496  c12.55,13.66,25.778,20.286,44.979,20.286c10.184,0,19.813-3.753,27.304-10.559c5.451-4.864,181.94-300.9,253.961-392.637  c7.002-8.911,10.837-18.654,10.837-28.087C509.268,47.661,500.684,30.818,486.061,22.462z"/>
@@ -26,48 +26,4 @@
   <img #imgCapture [src]="currentImage">
 
   <!--<canvas #myCanvas height="1500" width="1500"></canvas>-->
-</div>
-
-<ng-datepicker [(ngModel)]="date" options="options"></ng-datepicker>
-
-
-
-<div class="mdl-layout mdl-js-layout app-body-content-layout" style="padding: 0px; margin: 0px; max-width: 99%;width:100%">
-  <!--product-->
-  <div class="review-card-wide mdl-card mdl-shadow--2dp review-card-small" *ngFor="let price of prices">
-    <div class="mdl-card__title mdl-color--grey-700" style="padding-right:8px;">
-      <span class="app-sub-header">Term: {{price.Term}} Months</span>
-      <div class="mdl-layout-spacer"></div>
-    </div>
-
-    <div class="mdl-card__actions mdl-card--border">
-      <div class="mdl-grid" style="width: 100%">
-        <!--Display Name-->
-        <div class="mdl-cell--4-col label-price" *ngIf="!isInAddEditMode" >Name:
-         <span class="mdl-color-text--green-600" style="margin-left:3px; text-transform: uppercase">{{price.ProductName}}</span>
-        </div>
-
-        <!--Edit Name-->
-        <div *ngIf="isInAddEditMode" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused" >
-          <input class="mdl-textfield__input" type="text" id="priceName" value="{{price.ProductName}}" [(ngModel)]="price.ProductName" />
-          <label class="mdl-textfield__label active-hint" for="priceName">Name *</label>
-        </div>
-
-        <!--Display Price-->
-        <div class="mdl-cell--4-col label-price">Price: <span class="label-price-value">{{price.Value}} / {{price.Uom}}</span> </div>
-        <!--Edit Price-->
-        <div *ngIf="isInAddEditMode" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused" >
-          <input class="mdl-textfield__input" type="text" id="priceValue" value="{{price.Value}}" [(ngModel)]="price.Value" />
-          <label class="mdl-textfield__label active-hint" for="priceValue">Value *</label>
-        </div>
-
-        <div class="mdl-cell--4-col label-price">Price Date: <span class="label-price-value">{{price.PriceDate | date:'shortDate'}}</span> </div>
-        <div class="mdl-cell--4-col label-price">Expiration Date: <span class="label-price-value">{{price.PriceExpirationDate | date:'shortDate'}}</span> </div>
-      </div>
-    </div>
-    <div class="mdl-grid no-padding-no-margin">
-      <div class="mdl-layout-spacer"></div>
-      <a *ngIf="!isInAddEditMode" class="mdl-list__item-secondary-action" style="margin-right: 20px" (click)="onEditPrice(price)"><i class="material-icons">edit</i></a>
-    </div>
-  </div>
 </div>
